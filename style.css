@@ -27,12 +27,11 @@ li {
 }
 
 .wrapper {
-  width: 1200px;
+  width: min(1200px, 97vw);
   margin: 0 auto;
 }
 
 .header {
-  max-width: 1200px;
   height: 6rem;
 }
 
@@ -113,6 +112,7 @@ li {
   color: #000;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem;
   background-color: var(--sidebar-color);
   opacity: 0.342;
@@ -129,7 +129,6 @@ li {
 .move_sidebar_icon {
   color: inherit;
   font-size: 1.2rem;
-  margin-top: 0.2rem;
   cursor: pointer;
 }
 
@@ -382,6 +381,177 @@ li {
       top: 20%;
       left: -30%;
       height: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 960px) {
+  .header_title--content {
+    font-size: 1.45rem;
+  }
+  .navbar_list {
+    height: 1.7rem;
+  }
+  .navbar_link {
+    font-size: 0.9rem;
+  }
+  .footer_about {
+    font-size: 0.9rem;
+  }
+  .sidebar {
+    width: 260px;
+  }
+  .content {
+    flex: 3;
+  }
+  .content_title {
+    font-size: 1.3rem;
+  }
+  .content_info_input {
+    width: 50%;
+    padding: 0.2rem;
+  }
+  .content_info_lable {
+    font-size: 0.7rem;
+  }
+  .content_shop {
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+  .shop_list_title {
+    text-align: start;
+    font-size: 1rem;
+    margin: 0 1.4rem;
+  }
+  .shop_list_list {
+    width: 90%;
+    zoom: 0.7;
+    margin: 0.3rem auto;
+  }
+  .content_pagination {
+    flex: 0;
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: 0.4rem;
+  }
+  .btn_trans {
+    font-size: 1.1rem;
+    width: 10%;
+  }
+  .content_perchase_register,
+  .content_perchase_deleteAll {
+    font-size: 0.85rem;
+  }
+
+  .content_table_list {
+    font-size: 0.7rem;
+  }
+  .sidebar_item-title {
+    font-size: 0.9rem;
+  }
+  .sidebar_item-head {
+    padding: 0.1rem;
+  }
+  .dropdown_icon,
+  .move_sidebar_icon,
+  .tri_arrow {
+    font-size: 0.9rem !important;
+  }
+  .dropdown-content {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header_title {
+    max-width: 96.5vw;
+  }
+  .header_title--content {
+    font-size: 1.5rem;
+  }
+  .navbar_list {
+    height: 1.4rem;
+    width: 65%;
+  }
+  .navbar_link {
+    font-size: 0.6rem;
+  }
+
+  .sidebar {
+    padding: 0.2rem;
+    width: 100%;
+    flex: 1;
+  }
+  .content {
+    flex: 3;
+  }
+  .content_title {
+    font-size: 1.3rem;
+  }
+  .content_info_input {
+    width: 50%;
+    padding: 0.2rem;
+  }
+  .content_info_lable {
+    font-size: 0.7rem;
+  }
+  .content_shop {
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+  .shop_list_title {
+    text-align: start;
+    font-size: 1rem;
+    margin: 0 1.4rem;
+  }
+  .shop_list_list {
+    width: 90%;
+    zoom: 0.7;
+    margin: 0.3rem auto;
+  }
+  .content_pagination {
+    flex: 0;
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: 0.4rem;
+  }
+  .btn_trans {
+    font-size: 1.1rem;
+    width: 10%;
+  }
+  .content_perchase_register,
+  .content_perchase_deleteAll {
+    font-size: 0.85rem;
+  }
+
+  .content_table_list {
+    font-size: 0.7rem;
+  }
+  .sidebar_item-title {
+    font-size: 0.9rem;
+  }
+  .sidebar_item-head {
+    padding: 0.1rem;
+  }
+  .dropdown_icon,
+  .move_sidebar_icon,
+  .tri_arrow {
+    font-size: 0.9rem !important;
+  }
+  .dropdown-content {
+    font-size: 0.7rem;
+  }
+
+  .footer_about {
+    font-size: 0.6rem;
+  }
+
+  .footer_navbar_list {
+    & > a {
+      & ~ &::before {
+        top: 20%;
+        left: -50%;
+      }
     }
   }
 }
