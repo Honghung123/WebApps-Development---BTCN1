@@ -15,8 +15,9 @@ li {
 
 /* Styling Web */
 :root {
-  --main-color: blue;
   --sidebar-color: #e48c04;
+  --sidebar-color-opacity: #e48a0480;
+  --sidebar-color-opa07: #e48a04bd;
   --sidebar-border: #a26100;
   --border-color: #bbbbbb;
 }
@@ -61,8 +62,6 @@ li {
     1px 1px 2px #000;
 }
 
-.navbar {
-}
 .navbar_list {
   background-color: #ccdafd;
   margin: 0 auto;
@@ -108,7 +107,7 @@ li {
   border: 1px solid var(--sidebar-border);
 }
 .sidebar_item ~ .sidebar_item {
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
 }
 .sidebar_item-head {
   color: #000;
@@ -116,7 +115,7 @@ li {
   justify-content: space-between;
   padding: 0.5rem;
   background-color: var(--sidebar-color);
-  opacity: 0.5;
+  opacity: 0.342;
   &.active {
     opacity: 1;
     color: white;
@@ -129,12 +128,13 @@ li {
 .dropdown_icon,
 .move_sidebar_icon {
   color: inherit;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
 }
 
 .tri_arrow {
-  margin-top: 0.4rem;
-  font-size: 1.2rem !important;
+  margin-top: 0.1rem;
+  font-size: 1.4rem !important;
 }
 
 /* .down_arrow {
@@ -154,14 +154,13 @@ li {
   padding: 1rem;
 }
 .content_title {
-  color: var(--sidebar-color);
+  color: var(--sidebar-color-opa07);
   text-align: center;
   font-size: 1.6rem;
-  opacity: 0.8;
 }
 .content_form {
   border-top: 1px solid #bbbbbb;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 .content_info_item {
   display: flex;
@@ -173,9 +172,9 @@ li {
   display: flex;
   justify-content: end;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   & + & {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -183,7 +182,7 @@ li {
   width: 45%;
   padding: 0.3rem;
   background: none;
-  border: 2px solid #5a5a5a;
+  border: 2px solid #8f8f8f;
   margin-left: 0.5rem;
   border-radius: 2px;
 }
@@ -207,7 +206,7 @@ li {
   font-size: 1.2rem;
   text-align: end;
   font-weight: bold;
-  color: var(--sidebar-color);
+  color: var(--sidebar-color-opa07);
   &.reverse {
     text-align: start;
   }
@@ -276,6 +275,10 @@ li {
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid var(--sidebar-color);
+  &:hover {
+    color: white;
+    background-color: var(--sidebar-color-opa07);
+  }
 }
 .btn_trans {
   font-size: 1.5rem;
@@ -293,10 +296,90 @@ li {
   justify-content: center;
   align-items: stretch;
   column-gap: 0.6rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #929292a6;
 }
 .content_perchase_register,
 .content_perchase_deleteAll {
-  padding: 0.3rem 1rem;
+  padding: 0.1rem 1rem;
   font-size: 1rem;
   color: #2b0098;
+}
+
+.content_table {
+  margin-top: 0.5rem;
+}
+.content_table_list {
+  & > thead > tr {
+    background-color: var(--sidebar-color);
+    color: white;
+    & > th {
+      padding: 0.17rem 0;
+    }
+  }
+  & > thead > tr:nth-child(even),
+  & > tbody > tr > td:nth-child(even) {
+    text-align: center;
+  }
+  & > tbody > tr > td {
+    padding: 0.1rem 0.4rem;
+  }
+  & > tbody > tr:nth-child(even) {
+    background-color: #e2b5436b;
+  }
+}
+
+.footer {
+  padding: 0.5rem 0;
+  border-top: 1px solid #98c0ff;
+}
+.footer_about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--sidebar-color-opa07);
+  padding: 0.2rem 0;
+  border: 2px solid var(--sidebar-color-opacity);
+  box-shadow: 1px 2px 6px 1px gray;
+  border-radius: 5px;
+  background: #ffce646b;
+  column-gap: 1rem;
+  font-size: 1.1rem;
+}
+.footer_copyright {
+  color: inherit;
+}
+.footer_navbar {
+  color: inherit;
+}
+.footer_navbar_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.7rem;
+  & > a {
+    color: inherit;
+    display: inline-block;
+    margin: 0 0.7rem;
+    position: relative;
+    text-decoration: underline;
+    &:hover,
+    &.active {
+      text-shadow: 1px 1px 0 #ffc8526b, 1px 1px 0 #ffc8526b, 1px 1px 0 #ffc8526b,
+        1px 1px 0 #ffc8526b;
+      color: wheat;
+      background-color: var(--sidebar-color-opa07);
+    }
+    & ~ &::before {
+      content: "";
+      position: absolute;
+      border-left: 1px solid var(--sidebar-color);
+      top: 20%;
+      left: -30%;
+      height: 80%;
+    }
+  }
+}
+.footer_navbar_item {
+  /* color: inherit; */
 }
