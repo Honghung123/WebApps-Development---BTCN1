@@ -86,8 +86,8 @@
                             <span class="content_info_lable">Điện thoại: <input class="content_info_input" /></span>
                             <span class="content_info_lable">Giới tính:
                                 <span class="content_info_gender">
-                                    <input type="radio" name="gender" value="Nam"> Nam
-                                    <input type="radio" name="gender" value="Nữ"> Nữ
+                                    <input id="maleRadio" type="radio" name="gender" value="male"> Nam
+                                    <input id="femaleRadio" type="radio" name="gender" value="female"> Nữ
                                 </span>
                             </span>
                             <span class="content_info_lable">Ngày giao hàng: <input type="date"
@@ -145,10 +145,10 @@
                             </ul>
                         </div>
                         <div class="content_pagination">
-                            <button class="btn btn_trans">&#707;</button>
-                            <button class="btn btn_trans">&#707;&#707;</button>
-                            <button class="btn btn_trans">&#706;</button>
-                            <button class="btn btn_trans">&#706;&#706;</button>
+                            <button class="btn btn_trans add_selected">&#707;</button>
+                            <button class="btn btn_trans add_all">&#707;&#707;</button>
+                            <button class="btn btn_trans discard_selected">&#706;</button>
+                            <button class="btn btn_trans discard_all">&#706;&#706;</button>
                         </div>
                         <div class="content_shop_cart">
                             <p class="shop_list_title reverse">Sản phẩm đã chọn</p>
@@ -199,7 +199,7 @@
                                     <th width="29.6%">Sản phẩm</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="myTable">
                                 <tr>
                                     <td>Nguyễn Thị A</td>
                                     <td>Nữ</td>

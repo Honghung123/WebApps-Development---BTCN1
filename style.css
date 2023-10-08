@@ -189,6 +189,14 @@ li {
   border: 2px solid #8f8f8f;
   margin-left: 0.5rem;
   border-radius: 2px;
+  &.invalid {
+    border-color: red !important;
+  }
+}
+.text-error {
+  justify-content: start;
+  padding-left: 55%;
+  color: red;
 }
 .content_info_gender {
   display: flex;
@@ -237,8 +245,9 @@ li {
   text-align: center;
   border: 1px solid var(--border-color);
   border-radius: 7px;
-
-  &:hover {
+  cursor: pointer;
+  &:hover,
+  &.active {
     background-color: var(--sidebar-color);
     color: white;
   }
@@ -314,6 +323,7 @@ li {
   margin-top: 0.5rem;
 }
 .content_table_list {
+  width: 100%;
   & > thead > tr {
     background-color: var(--sidebar-color);
     color: white;
@@ -442,7 +452,9 @@ li {
   .content_perchase_deleteAll {
     font-size: 0.85rem;
   }
-
+  .content_info_gender {
+    width: 50%;
+  }
   .content_table_list {
     font-size: 0.7rem;
   }
@@ -494,6 +506,9 @@ li {
   }
   .content_info_lable {
     font-size: 0.7rem;
+  }
+  .content_info_gender {
+    width: 50%;
   }
   .content_shop {
     flex-direction: column;
