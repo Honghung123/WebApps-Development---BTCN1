@@ -130,11 +130,16 @@ li {
   color: inherit;
   font-size: 1.2rem;
   margin-top: 0.2rem;
+  cursor: pointer;
 }
 
 .tri_arrow {
   margin-top: 0.1rem;
   font-size: 1.4rem !important;
+}
+
+.n-resize {
+  cursor: n-resize !important;
 }
 
 /* .down_arrow {
@@ -379,7 +384,4 @@ li {
       height: 80%;
     }
   }
-}
-.footer_navbar_item {
-  /* color: inherit; */
 }
