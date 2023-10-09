@@ -448,6 +448,7 @@ document.querySelectorAll(".n-resize").forEach((resize) => {
   console.log(resize, sidebarItem, sidebarItemHead);
   dragElement(resize);
 });
+
 function dragElement(element) {
   element.xOld = 0;
   element.yOld = 0;

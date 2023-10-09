@@ -405,6 +405,7 @@ li {
 }
 
 .footer {
+  margin-top: 0.5rem;
   padding: 0.5rem 0;
   border-top: 1px solid #98c0ff;
 }
@@ -556,6 +557,13 @@ li {
   .text-error {
     padding-left: 50%;
   }
+  .span_navbar_list {
+    top: 1.4rem;
+  }
+  .span_footer_navbar_list {
+    width: 5rem;
+    left: -10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -624,7 +632,7 @@ li {
   }
 
   .content_table_list {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .sidebar_item-title {
     font-size: 0.9rem;
@@ -655,5 +663,33 @@ li {
   }
   .text-error {
     padding-left: 50%;
+  }
+  .span_navbar_list {
+    top: 1rem;
+    left: 8px;
+    width: 4rem;
+  }
+  .span_footer_navbar_list {
+    left: -2rem;
+    top: -1px;
+    width: 4rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .content_table_list {
+    font-size: 0.4rem;
+  }
+  .content_info_input {
+    padding: 0;
+  }
+  .content_info_lable {
+    font-size: 0.6rem;
+  }
+  .content_info_gender {
+    column-gap: 0.3rem;
+  }
+  .btn_trans {
+    font-size: 1rem;
   }
 }

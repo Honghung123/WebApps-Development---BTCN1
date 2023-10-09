@@ -1,0 +1,51 @@
+Tự đánh giá điểm: 12.5 Điểm
+
+*** Chi tiết: 
+- xây dựng bố cục tổng quát gồm Header, Nav, Main, Side và Footer theo thông số kích thước và vị trí yêu cầu. 
+Tổng thể trang web phải được canh giữa trình duyệt theo chiều ngang.
+Điểm tự đánh giá: 1 điểm
+
+- định dạng phần Header bao gồm cả dữ liệu.
+Điểm tự đánh giá: 1 điểm
+
+- định dạng phần Nav bao gồm cả dữ liệu.
+Điểm tự đánh giá: 1 điểm
+
+- định dạng phần Footer bao gồm cả dữ liệu.
+Điểm tự đánh giá: 1 điểm
+
+- định dạng phần Side bao gồm cả dữ liệu.
+Điểm tự đánh giá: 1 điểm
+
+- cho phép đóng mở (thu gọn) của NEWS.
+Điểm tự đánh giá: 1 điểm
+
+- cho phép thay đổi thứ tự các NEWS. Nếu không có kéo thả thì chỉ đạt 25%.
+Điểm tự đánh giá: 0 điểm
+
+- định dạng phần nhập liệu
+Điểm tự đánh giá: 1 điểm
+
+- xử lý kiểm tra dữ liệu phần nhập liệu. Không highlight và chi tiết mỗi ô nhập sai thì chỉ đạt 50%.
+Điểm tự đánh giá: 1 điểm
+
+- định dạng phần Danh sách sản phẩm (bao gồm dữ liệu)
+Điểm tự đánh giá: 1 điểm
+
+- xử lý chuyển sản phẩm bằng button.
+Điểm tự đánh giá: 1 điểm
+
+- xử lý chuyển sản phẩm bằng mouse kéo thả.
+Điểm tự đánh giá: 0 điểm
+
+- Định dạng bảng danh sách
+Điểm tự đánh giá: 1 điểm
+
+- xử lý chức năng Đăng ký và Xóa hết.
+Điểm tự đánh giá: 1 điểm
+
+- đáp ứng responsive với độ phân giải 768px.
+Điểm tự đánh giá: 0.5 điểm
+
+-------------------------------------------------------------------------------
+git log --graph -p > gitlog.txt
