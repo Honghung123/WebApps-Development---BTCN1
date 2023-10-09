@@ -94,15 +94,20 @@ listInfo[4].onfocus = (e) => {
 function validateInfo() {
   let flag = true;
   let reg = /\b\w+\b/g;
-  flag = validateNameOrAddr(listInfo[0], "*Họ tên", "name_message", reg);
+  flag =
+    validateNameOrAddr(listInfo[0], "*Họ tên", "name_message", reg) && flag;
   reg = /\b\w+\b/g;
-  flag = validateNameOrAddr(listInfo[1], "*Địa chỉ", "address_message", reg);
+  flag =
+    validateNameOrAddr(listInfo[1], "*Địa chỉ", "address_message", reg) && flag;
   reg = /^0\d{9}$/;
-  flag = validateCommon(listInfo[2], "*Số điện thoại", "tel_message", reg);
+  flag =
+    validateCommon(listInfo[2], "*Số điện thoại", "tel_message", reg) && flag;
   flag = validateGender("*Giới tính", "gender_message");
-  flag = validateDate(listInfo[3], "*Ngày giao hàng", "date_message");
+  flag = validateDate(listInfo[3], "*Ngày giao hàng", "date_message") && flag;
   reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  flag = validateCommon(listInfo[4], "*Email", "email_message", reg);
+  flag = validateCommon(listInfo[4], "*Email", "email_message", reg) && flag;
+  flag = getAllProductsCart() != "" && flag;
+  console.log("Flag: " + flag);
   return flag;
 }
 
@@ -198,6 +203,23 @@ function validateGender(title, className) {
     );
     insertAfter(validInfo, maleRadio.parentNode.parentNode);
   }
+}
+function getAllProductsCart() {
+  let nameProducts = "";
+  const shop_cart = document.querySelector(".shop_cart");
+  shop_cart.querySelectorAll(".shop_list_item").forEach((item) => {
+    let nameProduct = item.querySelector(".shop_list_item_name").textContent;
+    if (nameProducts == "") {
+      nameProducts = nameProduct;
+    } else {
+      nameProducts += "; " + nameProduct;
+    }
+  });
+  console.log(nameProducts, nameProducts == "");
+  if (nameProducts == "") {
+    alert("Không thể đăng ký vì không có sản phẩm nào đẫ chọn");
+  }
+  return nameProducts;
 }
 
 function createErrorMessageElement(message, className) {
@@ -323,13 +345,14 @@ registerButton.addEventListener("click", (e) => {
   }
 });
 function addRowToTable() {
-  let name = capitalizeString(listInfo[0].value);
-  let address = formatAddress(listInfo[1].value);
-  let date = convertDateFormat(listInfo[3].value);
-  let maleRadio = document.getElementById("maleRadio");
-  let gender = maleRadio.checked ? "Nam" : "Nữ";
-  console.log(name, address, tel, date, email, gender);
-  insertRowTable(name, gender, address, date, "Products");
+  const name = capitalizeString(listInfo[0].value);
+  const address = formatAddress(listInfo[1].value);
+  const date = convertDateFormat(listInfo[3].value);
+  const maleRadio = document.getElementById("maleRadio");
+  const gender = maleRadio.checked ? "Nam" : "Nữ";
+  const registers = getAllProductsCart();
+  console.log(name, address, date, gender, registers);
+  insertRowTable(name, gender, address, date, registers);
 }
 function capitalizeString(string) {
   let words = string.toLowerCase().split(" ");
@@ -347,7 +370,7 @@ function formatAddress(address) {
 }
 function convertDateFormat(dateString) {
   let parts = dateString.split("-");
-  let convertedDate = parts[0] + "/" + parts[1] + "/" + parts[2];
+  let convertedDate = parts[2] + "/" + parts[1] + "/" + parts[0];
   return convertedDate;
 }
 function insertRowTable() {
@@ -376,3 +399,81 @@ deleteAllRegister.addEventListener("click", (e) => {
     cell.innerHTML = "Register list is empty";
   }
 });
+
+// Xu ly Sidebar
+document.querySelectorAll(".sidebar_item").forEach((sidebar) => {
+  const downArrow = sidebar.querySelector(".down_arrow");
+  const triArrow = sidebar.querySelector(".tri_arrow");
+  const dropdownContent = sidebar.querySelector(".dropdown-content");
+  const sidebarItemHead = downArrow.parentElement;
+  if (sidebarItemHead.classList.contains("active")) {
+    downArrow.style.display = "inline-block";
+    dropdownContent.style.display = "block";
+    triArrow.style.display = "none";
+  } else {
+    downArrow.style.display = "none";
+    dropdownContent.style.display = "none";
+    triArrow.style.display = "inline-block";
+  }
+});
+document.querySelectorAll(".down_arrow").forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    let sidebarItemHead = e.target.parentElement;
+    let triArrow = sidebarItemHead.querySelector(".tri_arrow");
+    let sidebarItem = sidebarItemHead.parentElement;
+    let dropdownContent = sidebarItem.querySelector(".dropdown-content");
+    e.target.style.display = "none";
+    sidebarItemHead.classList.remove("active");
+    triArrow.style.display = "inline-block";
+    dropdownContent.style.display = "none";
+  });
+});
+document.querySelectorAll(".tri_arrow").forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    let sidebarItemHead = e.target.parentElement;
+    let downArrow = sidebarItemHead.querySelector(".down_arrow");
+    let sidebarItem = sidebarItemHead.parentElement;
+    let dropdownContent = sidebarItem.querySelector(".dropdown-content");
+    e.target.style.display = "none";
+    sidebarItemHead.classList.add("active");
+    downArrow.style.display = "inline-block";
+    dropdownContent.style.display = "block";
+  });
+});
+
+// Drag element
+document.querySelectorAll(".n-resize").forEach((resize) => {
+  let sidebarItemHead = resize.parentElement;
+  let sidebarItem = sidebarItemHead.parentElement;
+  console.log(resize, sidebarItem, sidebarItemHead);
+  dragElement(resize);
+});
+function dragElement(element) {
+  element.xOld = 0;
+  element.yOld = 0;
+  element.isDown = false;
+  element.onmousedown = function (e) {
+    element.isDown = true;
+    element.xOld = e.clientX;
+    element.yOld = e.clientY;
+    if (isNaN(parseInt(this.style.left))) {
+      this.style.left = this.offsetLeft + "px";
+      this.style.top = this.offsetTop + "px";
+    }
+  };
+  element.onmouseup = function (e) {
+    this.isDown = false;
+  };
+  element.onmousemove = function (e) {
+    if (this.isDown) {
+      let xCur = e.clientX;
+      let yCur = e.clientY;
+      let dx = xCur - this.xOld;
+      let dy = yCur - this.yOld;
+      this.xOld = xCur;
+      this.yOld = yCur;
+      this.style.left = parseInt(this.offsetLeft) + dx + "px";
+      this.style.top = parseInt(this.offsetTop) + dy + "px";
+    }
+  };
+}

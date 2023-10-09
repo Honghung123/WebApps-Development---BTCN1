@@ -54,6 +54,12 @@ li {
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 4px;
+  width: 70%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .strokeme {
@@ -101,8 +107,11 @@ li {
   padding: 0.4rem;
   border-right: 1px solid #98c0ff;
 }
-
+.sidebar_list {
+  /* position: relative; */
+}
 .sidebar_item {
+  /* position: absolute; */
   border: 1px solid var(--sidebar-border);
 }
 .sidebar_item ~ .sidebar_item {
@@ -266,6 +275,11 @@ li {
 }
 .shop_list_item_name {
   flex: 5.1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .shop_list_item_price {
   color: #ed5f23;
@@ -321,6 +335,8 @@ li {
 
 .content_table {
   margin-top: 0.5rem;
+  max-height: 24rem;
+  overflow-y: auto;
 }
 .content_table_list {
   width: 100%;
@@ -341,6 +357,13 @@ li {
   & > tbody > tr:nth-child(even) {
     background-color: #e2b5436b;
   }
+}
+#myTable > tr > td:nth-child(5) {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .footer {
@@ -472,6 +495,9 @@ li {
   .dropdown-content {
     font-size: 0.7rem;
   }
+  .text-error {
+    padding-left: 50%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -568,5 +594,8 @@ li {
         left: -50%;
       }
     }
+  }
+  .text-error {
+    padding-left: 50%;
   }
 }
