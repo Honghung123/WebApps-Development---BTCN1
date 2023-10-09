@@ -51,7 +51,7 @@ li {
 
 .header_title--content {
   color: #c1f9ff;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 600;
   letter-spacing: 4px;
   width: 70%;
@@ -190,7 +190,7 @@ li {
 .dropdown-content {
   /* display: none; */
   color: #0f67ff;
-  padding: 0.3rem 0.7rem;
+  padding: 0.2rem 0.7rem;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;

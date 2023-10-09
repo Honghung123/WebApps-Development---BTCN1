@@ -408,7 +408,7 @@ document.querySelectorAll(".sidebar_item").forEach((sidebar) => {
   const sidebarItemHead = downArrow.parentElement;
   if (sidebarItemHead.classList.contains("active")) {
     downArrow.style.display = "inline-block";
-    dropdownContent.style.display = "block";
+    dropdownContent.style.display = "-webkit-box";
     triArrow.style.display = "none";
   } else {
     downArrow.style.display = "none";
