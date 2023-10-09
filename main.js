@@ -477,3 +477,40 @@ function dragElement(element) {
     }
   };
 }
+
+// Handle navbar list
+const navList = document.querySelector("ul.navbar_list");
+const navbarLinks = navList.querySelectorAll("a.navbar_link");
+if (navbarLinks.length > 5) {
+  const expand = document.createElement("span");
+  expand.classList.add("navbar_link");
+  expand.classList.add("span_navbar");
+  expand.innerHTML = "&#9660;";
+  const listExpand = document.createElement("ul");
+  listExpand.classList.add("span_navbar_list");
+  for (let i = 5; i < navbarLinks.length; i++) {
+    listExpand.appendChild(navbarLinks[i]);
+    // navList.removeChild(navbarLinks[i]);
+  }
+  navList.appendChild(expand);
+  expand.appendChild(listExpand);
+}
+
+const navFooterList = document.querySelector("ul.footer_navbar_list");
+const navbarFooterLinks = navFooterList.querySelectorAll(
+  "a.footer_navbar_link"
+);
+if (navbarFooterLinks.length > 5) {
+  const expand = document.createElement("span");
+  expand.classList.add("footer_navbar_link");
+  expand.classList.add("span_footer_navbar");
+  expand.innerHTML = "&#9650;";
+  const listExpand = document.createElement("ul");
+  listExpand.classList.add("span_footer_navbar_list");
+  for (let i = 5; i < navbarFooterLinks.length; i++) {
+    listExpand.appendChild(navbarFooterLinks[i]);
+    // navList.removeChild(navbarLinks[i]);
+  }
+  expand.appendChild(listExpand);
+  navFooterList.appendChild(expand);
+}
